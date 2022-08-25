@@ -1,0 +1,14 @@
+.details-container {
+    display: flexbox;
+
+}
+
+.details-img {
+    width: 400px;
+    border-radius: 15px;
+}
+
+.details-text{
+    font-family: cursive;
+    font-size: 18px;
+}
