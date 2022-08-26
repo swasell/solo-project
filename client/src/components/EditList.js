@@ -11,6 +11,14 @@ const EditList = () => {
     const [description, setDescription] = useState('');
     const navigate = useNavigate();
 
+    const editStyle={
+        backgroundImage: 
+        "url('https://images.unsplash.com/photo-1552984418-b55abf780dd4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')",
+        height:'100vh',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+    };
+
     useEffect(() => {
         axios.put(`http://localhost:8000/api/exercise/edit/${id}`)
             .then(res => {
@@ -20,7 +28,7 @@ const EditList = () => {
             })
             .catch((err) => {console.log(err);
             })
-    }, [id])
+    }, [id]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -31,7 +39,7 @@ const EditList = () => {
         })
             .then(res => {
                 console.log(res);
-                navigate("/");
+                navigate("/dashboard");
             })
             .catch((err) => {
                 console.log(err);
@@ -39,7 +47,7 @@ const EditList = () => {
     }
 
     return(
-        <div className='edit-container'>
+        <div className="form-box" style={editStyle}>
             <form className='edit-form' onSubmit={handleSubmit}>
                 <div className='edit-fields'>
                     <label>Exercise Name:</label>
@@ -61,7 +69,6 @@ const EditList = () => {
                 <br/>
                 <button> Update </button>
             </form>
-            <img className="edit-pic"src={'https://images.pexels.com/photos/2277978/pexels-photo-2277978.jpeg'} alt="sunset bball"></img>
         </div>
     );
 };

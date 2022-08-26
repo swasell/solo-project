@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import './Details.css'
+import { Card } from 'react-bootstrap'
 
 const Details = () => {
 
@@ -20,9 +21,16 @@ const Details = () => {
     return(
         <div className="details-container">
             <img className='details-img' src="https://images.pexels.com/photos/2287506/pexels-photo-2287506.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="bball city"></img>
-            <p className="details-text">Name: {exercise.name}</p>
-            <p className="details-text">Muscles Focused: {exercise.focus}</p>
-            <p className="details-text">Description: {exercise.description}</p>
+            <Card className="card" style={{ width: '20rem' }}>
+            <Card.Body>
+                <Card.Title>{exercise.name}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">{exercise.focus}</Card.Subtitle>
+                <Card.Text>
+                {exercise.description}
+                </Card.Text>
+            </Card.Body>
+            </Card>
+            
         </div>
     )
 

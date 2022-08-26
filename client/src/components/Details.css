@@ -1,14 +1,18 @@
 .details-container {
-    display: flexbox;
-
+    margin:auto;
+    display: inline-block;
+    justify-content: space-evenly;
+    /* border: 2px solid red; */
 }
 
 .details-img {
     width: 400px;
     border-radius: 15px;
+    padding: 10px;
 }
 
-.details-text{
-    font-family: cursive;
-    font-size: 18px;
+.card {
+    text-align: center;
+    margin: auto;
+    padding: 10px;
 }

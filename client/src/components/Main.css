@@ -1,0 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Leckerli+One);
+
+.intro-text {
+    font-family: 'Leckerli One', cursive;
+    color: rgb(0, 153, 255);
+    text-align: center;
+    padding: 325px 0;
+    text-shadow: 2px 2px #ffffff;
+    font-weight: normal;
+}
+
+.nav-link {
+    float: left;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Leckerli One', cursive;
+    text-decoration: none;
+    color: rgb(0, 153, 255);
+    text-shadow: 1px 1px #ffffff;
+    font-size: 18px;
+}

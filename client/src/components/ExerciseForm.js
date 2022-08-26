@@ -11,6 +11,14 @@ const ExerciseForm = () => {
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
 
+    const exerciseStyle={
+        backgroundImage: 
+        "url('https://images.unsplash.com/photo-1544919982-b61976f0ba43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80')",
+        height:'100vh',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+    };
+
     const submitHandler = (e) => {
         e.preventDefault();
         axios.post("http://localhost:8000/api/exercise/new", {
@@ -30,7 +38,7 @@ const ExerciseForm = () => {
         };
     
     return(
-        <div className="new-container">
+        <div className="new-container" style={exerciseStyle}>
             <form onSubmit={submitHandler} className="form">
                 <div className="form-fields">
                     <label> Exercise Name: </label>
@@ -55,7 +63,6 @@ const ExerciseForm = () => {
                 <br/>
                 <button> Submit </button>
             </form>
-            <img className="newform-pic" src={'https://images.pexels.com/photos/2291004/pexels-photo-2291004.jpeg'} alt="basketball court"></img>
         </div>
     )
 }

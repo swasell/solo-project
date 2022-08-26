@@ -3,12 +3,20 @@ import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom"
 import './Dashboard.css'
+import { Table } from "react-bootstrap"
 
-const Dashboard = (props) => {
+const Dashboard = () => {
 
     const {id} = useParams();
     const [exerciseList, setExerciseList] = useState ([]);
     const navigate = useNavigate();
+
+    const myStyle={
+        backgroundColor: 'black',
+        height:'100vh',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+    };
 
     const removeExercise = (exerciseId) => {
         axios.delete(`http://localhost:8000/api/exercise/${exerciseId}`)
@@ -31,8 +39,8 @@ const Dashboard = (props) => {
     }, [id]);
 
     return(
-        <div className='container'>
-            <table className='dash-tbl'>
+        <div style={myStyle}>
+            <Table striped bordered hover variant='dark sm'>
                 <tbody>
                     <tr>
                         <th>Exercise Name</th>
@@ -44,7 +52,7 @@ const Dashboard = (props) => {
                             <td> <Link to={`/exercise/${exercise._id}`}>{exercise.name} </Link></td>
                             <td>{exercise.focus}</td>
                             <td>
-                                <button onClick={() => navigate(`exercise/edit/${exercise._id}`)}>Edit</button>
+                                <button onClick={() => navigate(`/exercise/edit/${exercise._id}`)}>Edit</button>
                                 <span> | </span>
                                 <button onClick={() => removeExercise(exercise._id)}>Delete</button>
                             </td>
@@ -53,7 +61,7 @@ const Dashboard = (props) => {
                     }
                 </tbody>
                 
-            </table>
+                </Table>
         </div>
     )
 }
